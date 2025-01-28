@@ -1,0 +1,385 @@
+@import "./config";
+
+header {
+  padding: 1rem;
+  @include displayType(row);
+  justify-content: space-between;
+  height: 3.5rem;
+  background: $secondary-4;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+
+  @include desktop {
+    padding: 1rem 8rem;
+  }
+
+  .desktop__nav--items {
+    display: none;
+
+    @include desktop {
+      @include displayType(row);
+      list-style: none;
+    }
+  }
+
+  .desktop__nav--link {
+    display: none;
+
+    @include desktop {
+      display: block;
+      text-decoration: none;
+      color: $secondary-1;
+      margin-right: 1.5rem;
+      font-size: 90%;
+    }
+  }
+
+  .desktop__btn {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  .hamburger {
+    @include desktop {
+      display: none;
+    }
+  }
+}
+
+.overview {
+  width: 100%;
+  text-align: center;
+  background: $secondary-3;
+  position: relative;
+  overflow: visible;
+
+  @include desktop {
+    height: 38rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+  }
+
+  #{&}__about {
+    padding: 0 1rem;
+
+    @include desktop {
+      width: 42%;
+      text-align: left;
+      align-self: center;
+      padding-left: 8rem;
+    }
+  }
+
+  #{&}__mockup--container {
+    width: 100%;
+    height: 21rem;
+    background-image: url("/img/bg-intro-mobile.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 -0.5rem;
+
+    @include desktop {
+      height: 30rem;
+      width: 58%;
+      background-image: url("/img/bg-intro-desktop.svg");
+      background-position: 6.5rem -5rem;
+      background-size: cover;
+    }
+  }
+
+  #{&}__mockup {
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    top: -8.5%;
+
+    @include desktop {
+      width: 50%;
+      position: absolute;
+      transform: translateX(45rem);
+    }
+  }
+}
+
+.overview__btn {
+  margin: 1.5rem 0 3rem 0;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 85%;
+  font-weight: weight(bold);
+  background: linear-gradient(to left, $primary-3 5%, $primary-2 95%);
+  border: $primary-3;
+  color: $secondary-2;
+
+  @include desktop {
+    margin: 0;
+  }
+}
+
+.overview__heading {
+  font-size: 2rem;
+  font-weight: weight(regular);
+  color: $primary-1;
+  padding-bottom: 1.5rem;
+
+  @include desktop {
+    font-size: 3rem;
+  }
+}
+
+.overview__info {
+  font-size: 85%;
+  color: $secondary-1;
+  line-height: 1.2rem;
+  font-weight: weight(regular);
+
+  @include desktop {
+    margin-bottom: 1.5rem;
+    font-size: 90%;
+  }
+}
+
+.info {
+  width: 100%;
+  padding: 2rem 1rem;
+  background: $secondary-2;
+  text-align: center;
+
+  @include desktop {
+    padding: 4rem 8rem;
+    text-align: left;
+  }
+
+  #{&}__heading {
+    @extend .overview__heading;
+    font-size: 1.8rem;
+  }
+
+  #{&}__text {
+    @extend .overview__info;
+    padding-bottom: 1rem;
+
+    @include desktop {
+      width: 50%;
+    }
+  }
+
+  #{&}__offer {
+    padding-top: 2rem;
+
+    @include desktop {
+      width: 23%;
+    }
+
+    &--container {
+      margin-bottom: 1.5rem;
+    }
+    &--heading {
+      @extend .overview__heading;
+      font-size: 1rem;
+    }
+    &--text {
+      @extend .info__offer--container;
+      @extend .overview__info;
+    }
+  }
+}
+
+.article {
+  width: 100%;
+  text-align: left;
+  padding: 5rem 1rem;
+  background: $secondary-3;
+
+  @include desktop {
+    padding: 4rem 8rem;
+  }
+
+  #{&}__heading {
+    @extend .overview__heading;
+    text-align: center;
+
+    @include desktop {
+      text-align: left;
+    }
+  }
+
+  #{&}__hub {
+    width: 100%;
+    margin-bottom: 1rem;
+    background: $secondary-4;
+
+    @include desktop {
+      width: 23%;
+      height: 25rem;
+      font-size: 60%;
+    }
+
+    &--img {
+      width: 100%;
+      height: 50%;
+
+      @include desktop {
+        height: 40%;
+      }
+    }
+
+    &--info {
+      padding: 2rem;
+
+      @include desktop {
+        padding: 1rem;
+      }
+    }
+
+    &--text {
+      @extend .overview__info;
+      padding-bottom: 0.7rem;
+      font-size: 80%;
+    }
+
+    &--heading {
+      @extend .overview__heading;
+      font-size: 0.9rem;
+      padding-bottom: 0.7rem;
+    }
+
+    &--paragraph {
+      @extend .overview__info;
+      font-size: 80%;
+
+      @include desktop {
+        font-size: 75%;
+      }
+    }
+  }
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  width: 100%;
+  background: $primary-1;
+  color: $secondary-3;
+
+  @include desktop {
+    padding: 3.5rem 12% 2rem 12%;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 2.5fr;
+  }
+
+  #{&}__socials {
+    width: 55%;
+    @include displayType(row);
+    justify-content: space-evenly;
+    margin: 2rem auto;
+
+    @include desktop {
+      width: 100%;
+      grid-gap: 15px;
+    }
+
+    i {
+      font-size: 1.3rem;
+    }
+  }
+
+  #{&}__nav {
+    &--items {
+      list-style: none;
+
+      @include desktop {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        justify-items: left;
+        grid-column-gap: 4rem;
+      }
+    }
+
+    &--item {
+      margin-bottom: 1rem;
+
+      @include desktop {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    &--link {
+      text-decoration: none;
+      color: $secondary-3;
+      @extend .overview__info;
+    }
+  }
+
+  #{&}__btn {
+    @extend .overview__btn;
+    margin-bottom: 1.5rem;
+  }
+
+  .copywrite {
+    @extend .overview__info;
+    color: $secondary-1;
+  }
+}
+
+//Div that wrapped 'info' and 'article' making it possible to use flex
+.desktop-only {
+  @include desktop {
+    @include displayType(row);
+    justify-content: space-between;
+  }
+}
+
+.desktop-grid-1 {
+  @include desktop {
+    justify-self: flex-start;
+  }
+}
+
+.desktop-grid-2 {
+  @include desktop {
+    justify-self: flex-end;
+  }
+}
+
+.desktop-grid-3 {
+  @include desktop {
+    justify-self: flex-end;
+    text-align: right;
+    align-self: flex-start;
+  }
+}
+
+//navigation bar
+.menu__nav {
+  height: 45vh;
+  width: 90vw;
+  top: 10%;
+  left: 5%;
+  transform: translateY(-10%);
+  opacity: 0;
+  background: #fff;
+  position: absolute;
+  z-index: 1000;
+  @include displayType(row);
+  transition: opacity all 1s 0.5s;
+
+  #{&}--items {
+    list-style: none;
+  }
+  #{&}--item {
+    margin-bottom: 1rem;
+  }
+
+  #{&}--link {
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    color: $primary-1;
+  }
+}

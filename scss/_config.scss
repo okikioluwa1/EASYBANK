@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+//default
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-size: 18px;
+  font-family: "Public Sans", serif;
+}
+
+//color variables
+$primary-1: hsl(233, 26%, 24%);
+$primary-2: hsl(136, 65%, 51%);
+$primary-3: hsl(192, 70%, 51%);
+
+$secondary-1: hsl(233, 8%, 62%);
+$secondary-2: hsl(220, 16%, 96%);
+$secondary-3: hsl(0, 0%, 98%);
+$secondary-4: hsl(0, 0%, 100%);
+
+//variable for desktop size
+$desktop: 1440px;
+
+//map variable for the font weight
+$font-weight: (
+  "regular": 300,
+  "medium": 400,
+  "bold": 700,
+);
+
+@mixin displayType($direction) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+//mixin for desktop view: media query
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@function weight($weight) {
+  @return map-get($font-weight, $weight);
+}
